@@ -16,6 +16,7 @@ RUN opam install -y js_of_ocaml
 RUN opam install -y lwt
 RUN opam install -y eliom
 RUN opam install -y ocsigen-start
+RUN opam install eliom js_of_ocaml js_of_ocaml-ppx lwt ppx_deriving^C
 USER opam
 WORKDIR /home/opam/app
 COPY src/ .
