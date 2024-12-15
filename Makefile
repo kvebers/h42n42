@@ -1,6 +1,10 @@
 run:
 	docker-compose up -d
 
+
+run_with_logs:
+	docker-compose up
+
 stop:
 	docker-compose down
 

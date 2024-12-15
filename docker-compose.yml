@@ -1,10 +1,15 @@
-version: "3"
+version: "3.8"
 services:
-  ocaml:
-    build: .
+  ocsigen:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ocsigen
     ports:
       - "8080:8080"
     volumes:
-      - .:/home/opam/app
-    #command: "opam exec -- dune exec -- ./bin/main.exe"
-    command: "tail -f /dev/null"
+      - ./app:/app
+    environment:
+      - OPAMYES=true
+      - OCAMLPARAM=_,bin-annot=1,strict-sequence=1
+    tty: true

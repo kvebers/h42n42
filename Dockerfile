@@ -1,26 +1,19 @@
-FROM ocaml/opam:debian-ocaml-4.14
+FROM ocaml/opam:debian-11-ocaml-4.14
 USER root
 RUN apt-get update && apt-get install -y \
-    m4 \
-    git \
-    curl \
-    pkg-config \
-    libssl-dev \
-    nodejs \
-    npm \
-    sudo \
-    libgmp-dev \
-    zlib1g-dev
+    git curl build-essential libssl-dev m4 unzip \
+    libgmp-dev zlib1g-dev pkg-config && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN opam install -y js_of_ocaml
 RUN opam install -y lwt
 RUN opam install -y eliom
 RUN opam install -y ocsigen-start
-RUN opam install eliom js_of_ocaml js_of_ocaml-ppx lwt ppx_deriving^C
+RUN opam install -y ppx_deriving
+RUN opam install -y js_of_ocaml-ppx
 USER opam
-WORKDIR /home/opam/app
-COPY src/ .
-#RUN make
+WORKDIR /app
 EXPOSE 8080
-#CMD ["ocsigenserver", "-c", "ocsigenserver.conf"]
+#CMD ["eliom-distillery"]
+ENV PATH="/home/opam/.opam/4.14/bin:${PATH}"
 CMD ["tail", "-f", "/dev/null"]
