@@ -27,6 +27,9 @@ RUN opam install -y ppx_deriving
 RUN opam install -y js_of_ocaml-ppx
 RUN opam install bigstringaf
 RUN opam install ocsipersist-sqlite
+RUN opam install dbm
+RUN opam install ocsipersist-dbm
+RUN opam install ocsipersist-dbm-config
 USER opam
 WORKDIR /app
 EXPOSE 8080

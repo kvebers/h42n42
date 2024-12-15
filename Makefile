@@ -1,5 +1,6 @@
 run:
 	docker-compose up -d
+	docker ps
 
 
 run_with_logs:
