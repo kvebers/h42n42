@@ -2,3 +2,4 @@ app/local/var/run/h42n42-cmd
 app/local/var/log/h42n42/access.log
 app/local/var/log/h42n42/warnings.log
 app/local/var/log/h42n42/errors.log
+app/local/var/data/h42n42/ocsipersist/socket

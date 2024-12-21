@@ -33,8 +33,7 @@ RUN opam install ocsipersist-dbm-config
 USER opam
 WORKDIR /app
 EXPOSE 8080
-#CMD ["eliom-distillery"]
 ENV PATH="/home/opam/.opam/4.14/bin:${PATH}" \
     LD_LIBRARY_PATH="/home/opam/.opam/4.14/lib/stublibs:${LD_LIBRARY_PATH}"
 RUN eval $(opam env)
-CMD ["tail", "-f", "/dev/null"]
+CMD ["/bin/bash", "-c", "make test.byte"]
