@@ -1,3 +1,11 @@
 * {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
+
+body {
+  background-color: green;
+  margin: 0;
+  padding: 0;
+}
+
+

@@ -36,4 +36,6 @@ EXPOSE 8080
 ENV PATH="/home/opam/.opam/4.14/bin:${PATH}" \
     LD_LIBRARY_PATH="/home/opam/.opam/4.14/lib/stublibs:${LD_LIBRARY_PATH}"
 RUN eval $(opam env)
-CMD ["/bin/bash", "-c", "make test.byte"]
+CMD ["tail", "-f", "/dev/null"]
+#CMD ["/bin/bash", "-c", "make test.byte"]
+#CMD ["/bin/bash", "-c", "make clean && make && make test.byte"]

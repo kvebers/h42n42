@@ -15,4 +15,4 @@ build:
 remove: stop
 
 execute:
-	docker exec -it 
+	docker exec -it ocsigen /bin/bash

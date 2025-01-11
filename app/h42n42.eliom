@@ -24,7 +24,10 @@ let () =
        Lwt.return
          (Eliom_tools.F.html
             ~title:"h42n42"
-            ~css:[["css";"h42n42.css"]]
-            Html.F.(body [
-              h1 [txt "Welcome from Eliom's distillery!"];
+            ~css:[["css"; "h42n42.css"]]
+            Html.F.(body ~a:[] [
+              div ~a:[a_class ["container"]] [
+                h1 [pcdata "h42n42"];
+                div ~a:[a_id "game"] []
+              ] 
             ])))
